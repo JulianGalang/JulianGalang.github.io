@@ -1,32 +1,155 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panjulsnrlax</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Transparent Form with Footer</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
+    <style>
+      /* Background full-screen yang gelap */
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        background-color: #2c2f33; /* Warna abu-abu gelap */
+        color: #ffffff; /* Warna teks menjadi putih agar kontras */
+      }
 
-<body>
+      /* Kontainer full-screen */
+      .full-screen {
+        min-height: calc(100vh - 80px); /* Menyisakan ruang untuk footer */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    <form>
-        <textarea id="pesan" name="comment" rows="4" cols="50" placeholder="Isi pesan disini!"></textarea>
-        <button type="button" onclick="KirimPesan()">Submit</button>
-    </form>
+      /* Mengatur form agar tetap di tengah tanpa kotak card */
+      .form-wrapper {
+        width: 100%;
+        max-width: 400px; /* Membatasi lebar form agar tidak terlalu lebar */
+      }
 
-    <footer id="footer">
-        <p>&copy; <span id="year"></span> Julian Galang Saputra All rights reserved.</p>
-        <p>Instagram : Panjulsnrlax</p>
+      /* Input field transparan dengan hanya stroke */
+      .form-control {
+        background-color: transparent;
+        border: 2px solid #7289da;
+        color: white;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+      }
+
+      /* Input pada hover dan focus */
+      .form-control:focus {
+        background-color: rgba(
+          114,
+          137,
+          218,
+          0.1
+        ); /* Biru-ungu sedikit transparan */
+        border-color: #7289da;
+        outline: none; /* Menghilangkan outline default */
+      }
+
+      /* Styling untuk placeholder agar bertindak seperti label */
+      .form-control::placeholder {
+        color: #ffffff;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:hover::placeholder,
+      .form-control:focus::placeholder {
+        opacity: 0;
+        transform: translateY(-20px); /* Placeholder bergerak ke atas */
+      }
+
+      /* Tombol dengan warna yang sesuai tema */
+      .btn-primary {
+        background-color: #7289da;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #5b6eae;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #23272a;
+        padding: 20px;
+        text-align: center;
+        color: #ffffff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container full-screen">
+      <div class="form-wrapper">
+        <h2 class="mb-4 text-center">Isi Pesan</h2>
+        <form>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Nama"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              id="message"
+              rows="4"
+              placeholder="Pesan"
+              required
+            ></textarea>
+          </div>
+          <div class="d-grid gap-2">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              onclick="KirimPesan()"
+            >
+              Kirim
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; <span id="year"></span> Julian Galang Saputra. All rights
+        reserved.
+      </p>
+      <p>Instagram: Panjulsnrlax</p>
     </footer>
 
+    <!-- Bootstrap JS (Optional if you use JS components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script untuk tahun dinamis -->
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+      // Mendapatkan tahun saat ini secara otomatis
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+      integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
