@@ -60,7 +60,7 @@ function KirimPesan() {
           confirmButtonText: "OKEYYY",
         }).then((result) => {
           if (result.isConfirmed) {
-            window.location.href = "index2.html"; // Redirect setelah user menekan "OKEYYY"
+            window.location.href = "index.html"; // Redirect setelah user menekan "OKEYYY"
           }
         });
       })
