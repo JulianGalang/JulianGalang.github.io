@@ -3,7 +3,7 @@ function KirimPesan() {
   var nama = document.getElementById("name");
   var pesan = document.getElementById("message");
   var token = "6460708675:AAF56-2-m201znZzTCIIERLoeUG6N1nA7HU";
-  var group = "-4548083582";
+  var group = "-1002469609836";
   const now = new Date();
 
   // Mendapatkan nama hari, tanggal, bulan, tahun, dan jam dalam format Indonesia
